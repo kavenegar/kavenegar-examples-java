@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import com.kavenegar.sdk.KavenegarApi;
 import com.kavenegar.sdk.excepctions.*;
 import com.kavenegar.sdk.models.*;
+import com.kavenegar.sdk.utils.PairValue;
 
 
 /**
@@ -24,15 +25,16 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        api = new KavenegarApi("APIKEY here");
-        Send();
+        api = new KavenegarApi("YouApiKey");
+        //Send();
+        VerifyLookup();
         System.out.print("\r\n\r\n");
     }
 
     public static void Send() {
         try {
-            String sender = "Line Number here";
-            String receptor = "Rreceptor mobile number here";
+            String sender = "YourLine";
+            String receptor = "MonilePhone";
             String message = "Message here";
             SendResult Result = api.send(sender, receptor, message);
             System.out.println("messageid : " + Result.getMessageId());
@@ -289,12 +291,17 @@ public class App {
     public static void VerifyLookup() {
         try {
 
-            String receptor = "";
-            String token = "";
+            String receptor = "mobilePhone";
+            String token = "0";
             String token2 = "";
             String token3 = "";
-            String template = "";
-            SendResult Result = api.verifyLookup(receptor, token, token2, token3, template);
+            String template = "your Template";
+            String token10 = "t10";
+            String token20 = "t20";
+            List<PairValue> keys=new ArrayList<>();
+            keys.add(new PairValue("token10", token10));
+            keys.add(new PairValue("token20", token20));
+            SendResult Result = api.verifyLookup(receptor, token, token2, token3, template,keys);
             System.out.println("messageid : " + Result.getMessage());
             System.out.println("message  : " + Result.getMessage());
             System.out.println("status  : " + Result.getStatus());

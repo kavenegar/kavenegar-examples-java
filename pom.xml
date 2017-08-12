@@ -18,10 +18,11 @@
     </repositories>
     <dependencies>
         <dependency>
-            <groupId>com.github.kavenegar</groupId>
+	    <groupId>com.github.kavenegar</groupId>
 	    <artifactId>kavenegar-java</artifactId>
-	    <version>v2.0.1</version>
+	    <version>-SNAPSHOT</version>
 	</dependency>
+
     </dependencies>
     <name>kavenegar-examples-java</name>
 </project>

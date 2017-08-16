@@ -27,7 +27,7 @@ public class App {
     public static void main(String[] args) {
         api = new KavenegarApi("YouApiKey");
         //Send();
-        VerifyLookup();
+        
         System.out.print("\r\n\r\n");
     }
 
@@ -288,33 +288,5 @@ public class App {
 
     }
 
-    public static void VerifyLookup() {
-        try {
-
-            String receptor = "mobilePhone";
-            String token = "0";
-            String token2 = "";
-            String token3 = "";
-            String template = "your Template";
-            String token10 = "t10";
-            String token20 = "t20";
-            List<PairValue> keys=new ArrayList<>();
-            keys.add(new PairValue("token10", token10));
-            keys.add(new PairValue("token20", token20));
-            SendResult Result = api.verifyLookup(receptor, token, token2, token3, template,keys);
-            System.out.println("messageid : " + Result.getMessage());
-            System.out.println("message  : " + Result.getMessage());
-            System.out.println("status  : " + Result.getStatus());
-            System.out.println("statustext  : " + Result.getStatusText());
-            System.out.println("sender  : " + Result.getSender());
-            System.out.println("receptor  : " + Result.getReceptor());
-            System.out.println("date  : " + Result.getDate());
-            System.out.println("cost  : " + Result.getCost());
-        } catch (HttpException ex) { // در صورتی که خروجی وب سرویس 200 نباشد این خطارخ می دهد.
-            System.out.print("HttpException  : " + ex.getMessage());
-        } catch (ApiException ex) { // در صورتی که خروجی وب سرویس 200 نباشد این خطارخ می دهد.
-            System.out.print("ApiException : " + ex.getMessage());
-        }
-
-    }
+    
 }
